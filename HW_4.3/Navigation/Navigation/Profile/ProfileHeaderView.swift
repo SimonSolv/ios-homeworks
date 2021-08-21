@@ -8,6 +8,7 @@
 import UIKit
 
 class ProfileHeaderView: UIView {
+    
     var status: String? = "Waiting for something..."
     var avatarImageView: UIView = {
         var circle: UIView = UIView()     
@@ -41,6 +42,8 @@ class ProfileHeaderView: UIView {
         textfield.backgroundColor = .white
         textfield.layer.cornerRadius = 12
         textfield.layer.borderWidth = 1
+        textfield.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textfield.frame.height))
+        textfield.leftViewMode = .always
         textfield.layer.borderColor = UIColor.black.cgColor
         textfield.font = .systemFont(ofSize: 15)
         textfield.textColor = .black
@@ -68,12 +71,11 @@ class ProfileHeaderView: UIView {
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
         statusTextField.translatesAutoresizingMaskIntoConstraints = false
         setStatusButton.translatesAutoresizingMaskIntoConstraints = false
-        
         translatesAutoresizingMaskIntoConstraints = false
-
         statusLabel.text = status
         statusTextField.frame = CGRect(x: statusLabel.frame.minX, y: statusLabel.frame.minY + 35, width: frame.width - statusLabel.frame.minX - 16, height: 40)
         setStatusButton.frame = CGRect(x: 16, y: statusTextField.frame.maxY + 16, width: frame.width-32, height: 50)
+        backgroundColor = .lightGray
         addSubview(setStatusButton)
         addSubview(avatarImageView)
         addSubview(fullNameLabel)
@@ -162,8 +164,6 @@ class ProfileHeaderView: UIView {
         .forEach {
             $0.isActive = true
         }
-
-
     }
     @objc func statusTextChanged(_ textField: UITextField){
         status = textField.text

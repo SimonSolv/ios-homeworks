@@ -10,6 +10,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.makeKeyAndVisible()
         let tabBarController = UITabBarController()
+        let loginVC = LoginViewController()
+        loginVC.tabBarItem = UITabBarItem(title: "Profile", image: .init(imageLiteralResourceName: "profile") , tag: 0)
+        loginVC.view.backgroundColor = .white
         let profileVC = ProfileViewController()
         profileVC.view.backgroundColor = .lightGray
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: .init(imageLiteralResourceName: "profile") , tag: 0)
@@ -17,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         feedVC.view.backgroundColor = .blue
         feedVC.tabBarItem = UITabBarItem(title: "Feed", image: .init(imageLiteralResourceName: "connect") , tag: 1)
         let feedNavVC = UINavigationController(rootViewController: feedVC)
-        let profileNavVC = UINavigationController(rootViewController: profileVC)
+        let profileNavVC = UINavigationController(rootViewController: loginVC)
+        profileNavVC.navigationBar.isHidden = true
 
         tabBarController.viewControllers = [feedNavVC , profileNavVC]
         window?.rootViewController = tabBarController

@@ -17,6 +17,7 @@
 		CE8D6E3026A464E100A25380 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6E2F26A464E100A25380 /* InfoViewController.swift */; };
 		CE8D6E6026A9B12600A25380 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6E5F26A9B12600A25380 /* ProfileHeaderView.swift */; };
 		CE8D6E6326A9B1AE00A25380 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6E6226A9B1AE00A25380 /* ProfileViewController.swift */; };
+		CEC51D5126C2F9BA0093913C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC51D5026C2F9BA0093913C /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CE8D6E2F26A464E100A25380 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		CE8D6E5F26A9B12600A25380 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		CE8D6E6226A9B1AE00A25380 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CEC51D5026C2F9BA0093913C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				CE8D6E5F26A9B12600A25380 /* ProfileHeaderView.swift */,
 				CE8D6E6226A9B1AE00A25380 /* ProfileViewController.swift */,
+				CEC51D5026C2F9BA0093913C /* LoginViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC51D5126C2F9BA0093913C /* LoginViewController.swift in Sources */,
 				CE8D6E2926A30EFD00A25380 /* PostViewController.swift in Sources */,
 				CE8D6E1126A3069000A25380 /* ViewController.swift in Sources */,
 				CE8D6E0D26A3069000A25380 /* AppDelegate.swift in Sources */,
