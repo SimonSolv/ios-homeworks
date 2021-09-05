@@ -19,11 +19,11 @@ class LoginViewController: UIViewController {
         return image
     }()
     var loginButton: UIButton = {
-        var btn: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        var btn: UIButton = UIButton()
         btn.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
         btn.layer.cornerRadius = 10
         btn.clipsToBounds = true
-        btn.addTarget(self , action: #selector(buttonPressed), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         btn.setTitle("Log in", for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -71,7 +71,7 @@ class LoginViewController: UIViewController {
     @objc func buttonPressed() {
         let vc = ProfileViewController()
         navigationController?.pushViewController(vc, animated: false)
-       // print("pressed")
+        print("pressed")
     }
     @objc func passwordFieldTapped(_ textField: UITextField){
         textField.text = ""
@@ -106,55 +106,54 @@ class LoginViewController: UIViewController {
     func setupViews(){
         view.addSubview(mainView)
         mainView.addSubview(contentView)
-        mainView.contentSize = CGSize(width: view.bounds.width, height: view.frame.size.height)
+       // mainView.contentSize = CGSize(width: view.bounds.width, height: 2000)
         contentView.addSubview(logoImageView)
         contentView.addSubview(loginButton)
         contentView.addSubview(inputSourceView)
         inputSourceView.addSubview(loginTextField)
         inputSourceView.addSubview(passwordTextField)
         mainView.translatesAutoresizingMaskIntoConstraints = false
-//        mainView.backgroundColor = .red
-//        contentView.backgroundColor = .green
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
     }
     func setupConstraits() {
-            let constraints = [
-                mainView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-                mainView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
-                mainView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                mainView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                
-                contentView.topAnchor.constraint(equalTo: mainView.topAnchor),
-                contentView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor),
-                contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                contentView.widthAnchor.constraint(equalTo: mainView.widthAnchor),
-                
-                logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 120),
-                logoImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                logoImageView.widthAnchor.constraint(equalToConstant: 100),
-                logoImageView.heightAnchor.constraint(equalToConstant: 100),
+        let constraints = [
+            mainView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mainView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            mainView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            mainView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                        
+            contentView.topAnchor.constraint(equalTo: mainView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: mainView.widthAnchor),
+                        
+            logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 120),
+            logoImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            logoImageView.widthAnchor.constraint(equalToConstant: 100),
+            logoImageView.heightAnchor.constraint(equalToConstant: 100),
 
-                loginButton.topAnchor.constraint(equalTo: logoImageView.bottomAnchor,constant: 230),
-                loginButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 10),
-                loginButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -10),
-                loginButton.heightAnchor.constraint(equalToConstant: 50),
+            loginButton.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 450),
+            loginButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 10),
+            loginButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -10),
+            loginButton.heightAnchor.constraint(equalToConstant: 50),
 
-                inputSourceView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 340),
-                inputSourceView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 10),
-                inputSourceView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -10),
-                inputSourceView.heightAnchor.constraint(equalToConstant: 100),
+            inputSourceView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 340),
+            inputSourceView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 10),
+            inputSourceView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -10),
+            inputSourceView.heightAnchor.constraint(equalToConstant: 100),
 
-                loginTextField.topAnchor.constraint(equalTo: inputSourceView.topAnchor),
-                loginTextField.leadingAnchor.constraint(equalTo: inputSourceView.leadingAnchor),
-                loginTextField.trailingAnchor.constraint(equalTo: inputSourceView.trailingAnchor),
-                loginTextField.heightAnchor.constraint(equalToConstant: 50),
+            loginTextField.topAnchor.constraint(equalTo: inputSourceView.topAnchor),
+            loginTextField.leadingAnchor.constraint(equalTo: inputSourceView.leadingAnchor),
+            loginTextField.trailingAnchor.constraint(equalTo: inputSourceView.trailingAnchor),
+            loginTextField.heightAnchor.constraint(equalToConstant: 50),
 
-                passwordTextField.topAnchor.constraint(equalTo: inputSourceView.topAnchor,constant: 50),
-                passwordTextField.leadingAnchor.constraint(equalTo: inputSourceView.leadingAnchor),
-                passwordTextField.trailingAnchor.constraint(equalTo: inputSourceView.trailingAnchor),
-                passwordTextField.heightAnchor.constraint(equalToConstant: 50)
+            passwordTextField.topAnchor.constraint(equalTo: inputSourceView.topAnchor,constant: 50),
+            passwordTextField.leadingAnchor.constraint(equalTo: inputSourceView.leadingAnchor),
+            passwordTextField.trailingAnchor.constraint(equalTo: inputSourceView.trailingAnchor),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 50),
+            passwordTextField.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
 
             ]
         NSLayoutConstraint.activate(constraints)

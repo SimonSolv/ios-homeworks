@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         feedVC.view.backgroundColor = .blue
         feedVC.tabBarItem = UITabBarItem(title: "Feed", image: .init(imageLiteralResourceName: "connect") , tag: 1)
         let feedNavVC = UINavigationController(rootViewController: feedVC)
-        let profileNavVC = UINavigationController(rootViewController: loginVC)
+        let profileNavVC = UINavigationController(rootViewController: profileVC)
         profileNavVC.navigationBar.isHidden = true
 
         tabBarController.viewControllers = [feedNavVC , profileNavVC]

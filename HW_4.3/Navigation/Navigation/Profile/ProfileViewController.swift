@@ -13,7 +13,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Profile"
         self.view.backgroundColor = .lightGray
-        let mainView = ProfileHeaderView()
+        let mainView = ProfileTableHeaderView()
         view.addSubview(mainView)
         let lowButton: UIButton = {
             let btn = UIButton()
