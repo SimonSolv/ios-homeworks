@@ -9,7 +9,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     let mainView = UIScrollView()
-    
     let contentView = UIView()
     let logoImageView: UIView = {
         let image: UIImageView = UIImageView()
@@ -71,7 +70,7 @@ class LoginViewController: UIViewController {
     @objc func buttonPressed() {
         let vc = ProfileViewController()
         navigationController?.pushViewController(vc, animated: false)
-        print("pressed")
+//        print("pressed")
     }
     @objc func passwordFieldTapped(_ textField: UITextField){
         textField.text = ""
@@ -81,7 +80,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupConstraits()
-        print (mainView.bounds.height)
+ //       print (mainView.bounds.height)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -106,7 +105,6 @@ class LoginViewController: UIViewController {
     func setupViews(){
         view.addSubview(mainView)
         mainView.addSubview(contentView)
-       // mainView.contentSize = CGSize(width: view.bounds.width, height: 2000)
         contentView.addSubview(logoImageView)
         contentView.addSubview(loginButton)
         contentView.addSubview(inputSourceView)
@@ -138,6 +136,7 @@ class LoginViewController: UIViewController {
             loginButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 10),
             loginButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -10),
             loginButton.heightAnchor.constraint(equalToConstant: 50),
+            loginButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
             inputSourceView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 340),
             inputSourceView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 10),
@@ -152,8 +151,7 @@ class LoginViewController: UIViewController {
             passwordTextField.topAnchor.constraint(equalTo: inputSourceView.topAnchor,constant: 50),
             passwordTextField.leadingAnchor.constraint(equalTo: inputSourceView.leadingAnchor),
             passwordTextField.trailingAnchor.constraint(equalTo: inputSourceView.trailingAnchor),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 50),
-            passwordTextField.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            passwordTextField.heightAnchor.constraint(equalToConstant: 50)
 
             ]
         NSLayoutConstraint.activate(constraints)

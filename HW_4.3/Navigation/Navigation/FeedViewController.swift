@@ -29,14 +29,6 @@ class FeedViewController: UIViewController {
 
         
         [
-//            buttonsView.centerYAnchor.constraint(
-//                equalTo: view.centerYAnchor,
-//                constant: 20
-//            ),
-//            buttonsView.centerXAnchor.constraint(
-//                equalTo: view.centerXAnchor,
-//                constant: 20
-//            ),
             buttonsView.trailingAnchor.constraint(
                 equalTo: view.trailingAnchor,
                 constant: -20

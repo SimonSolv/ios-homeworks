@@ -1,62 +1,64 @@
-//
-//  ProfileViewController.swift
-//  Navigation
-//
-//  Created by Simon Pegg on 22.07.2021.
-//
-
 import UIKit
 
 class ProfileViewController: UIViewController {
 
+    let tableView: UITableView = {
+        var table = UITableView()
+        table.frame = .zero
+        table.translatesAutoresizingMaskIntoConstraints = false
+        return table
+    }()
+    
+    let cellID = "CellID"
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Profile"
-        self.view.backgroundColor = .lightGray
-        let mainView = ProfileTableHeaderView()
-        view.addSubview(mainView)
-        let lowButton: UIButton = {
-            let btn = UIButton()
-            btn.backgroundColor = .black
-            btn.setTitle("New button", for: .normal)
-            btn.setTitleColor(.white, for: .normal)
-            return btn
-            
-        }()
-        mainView.translatesAutoresizingMaskIntoConstraints = false
-        lowButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(lowButton)
-        [
-            mainView.topAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.topAnchor
-            ),
-            mainView.trailingAnchor.constraint(
-                equalTo: view.trailingAnchor
-            ),
-            mainView.leadingAnchor.constraint(
-                equalTo: view.leadingAnchor
-            ),
-            mainView.bottomAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.topAnchor,
-                constant: 220
-            ),
-            lowButton.leadingAnchor.constraint(
-                equalTo: self.view.leadingAnchor
-            ),
-            lowButton.trailingAnchor.constraint(
-                equalTo: self.view.trailingAnchor
-            ),
-            lowButton.bottomAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.bottomAnchor
-            ),
-            lowButton.topAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.bottomAnchor,
-                constant: -50
-            )
-        ]
-        .forEach {
-            $0.isActive = true
+        setupTableView()
+        setupConstraints()
         }
+    
+    func setupTableView() {
+        view.addSubview(tableView)
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.register(ProfileTableHeaderView.self, forHeaderFooterViewReuseIdentifier: "header")
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    func setupConstraints() {
+        let constraints = [
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ]
+        NSLayoutConstraint.activate(constraints)
     }
 
+}
+extension ProfileViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return PostStorage.tableModel[section].body.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return PostStorage.tableModel.count
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return PostStorage.tableModel[section].sectionHeader
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? PostTableViewCell
+        cell?.post = PostStorage.tableModel[indexPath.section].body[indexPath.row]
+        return cell!
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 250
+    }
+ 
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return PostStorage.tableModel[section].footer
+    }
 }
