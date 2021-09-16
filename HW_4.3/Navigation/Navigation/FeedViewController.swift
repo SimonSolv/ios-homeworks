@@ -19,7 +19,6 @@ class FeedViewController: UIViewController {
             btn.addTarget(self, action: #selector(tapNewPostButton), for: .touchUpInside)
             return btn
         }()
-        
         let buttonsView = UIStackView(arrangedSubviews: [
             postButton1,
             postButton2
@@ -71,5 +70,4 @@ class FeedViewController: UIViewController {
         guard segue.identifier == "Post" else { return }
         guard segue.destination is PostViewController else { return }
     }
-
 }
