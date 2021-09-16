@@ -18,7 +18,9 @@
 		CE8D6E6026A9B12600A25380 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6E5F26A9B12600A25380 /* ProfileHeaderView.swift */; };
 		CE8D6E6326A9B1AE00A25380 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6E6226A9B1AE00A25380 /* ProfileViewController.swift */; };
 		CEC51D5126C2F9BA0093913C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC51D5026C2F9BA0093913C /* LoginViewController.swift */; };
-		CED2D0B926E3E69D00ED0387 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2D0B826E3E69D00ED0387 /* ProfileTableHeaderView.swift */; };
+		CED2D0BD26E532F600ED0387 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2D0BC26E532F600ED0387 /* PostTableViewCell.swift */; };
+		CED2D0C026E5333300ED0387 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2D0BF26E5333300ED0387 /* Post.swift */; };
+		CED2D0C426E9212700ED0387 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2D0C326E9212700ED0387 /* ProfileTableHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +37,9 @@
 		CE8D6E5F26A9B12600A25380 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		CE8D6E6226A9B1AE00A25380 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CEC51D5026C2F9BA0093913C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		CED2D0B826E3E69D00ED0387 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
+		CED2D0BC26E532F600ED0387 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		CED2D0BF26E5333300ED0387 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		CED2D0C326E9212700ED0387 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +92,9 @@
 				CE8D6E5F26A9B12600A25380 /* ProfileHeaderView.swift */,
 				CE8D6E6226A9B1AE00A25380 /* ProfileViewController.swift */,
 				CEC51D5026C2F9BA0093913C /* LoginViewController.swift */,
-				CED2D0B826E3E69D00ED0387 /* ProfileTableHeaderView.swift */,
+				CED2D0BC26E532F600ED0387 /* PostTableViewCell.swift */,
+				CED2D0BF26E5333300ED0387 /* Post.swift */,
+				CED2D0C326E9212700ED0387 /* ProfileTableHeaderView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -162,13 +168,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED2D0BD26E532F600ED0387 /* PostTableViewCell.swift in Sources */,
 				CEC51D5126C2F9BA0093913C /* LoginViewController.swift in Sources */,
 				CE8D6E2926A30EFD00A25380 /* PostViewController.swift in Sources */,
+				CED2D0C026E5333300ED0387 /* Post.swift in Sources */,
 				CE8D6E1126A3069000A25380 /* ViewController.swift in Sources */,
 				CE8D6E0D26A3069000A25380 /* AppDelegate.swift in Sources */,
-				CED2D0B926E3E69D00ED0387 /* ProfileTableHeaderView.swift in Sources */,
 				CE8D6E3026A464E100A25380 /* InfoViewController.swift in Sources */,
 				CE8D6E2326A309F900A25380 /* FeedViewController.swift in Sources */,
+				CED2D0C426E9212700ED0387 /* ProfileTableHeaderView.swift in Sources */,
 				CE8D6E6326A9B1AE00A25380 /* ProfileViewController.swift in Sources */,
 				CE8D6E0F26A3069000A25380 /* SceneDelegate.swift in Sources */,
 				CE8D6E6026A9B12600A25380 /* ProfileHeaderView.swift in Sources */,
