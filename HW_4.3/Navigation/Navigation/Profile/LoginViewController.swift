@@ -1,9 +1,3 @@
-//
-//  LoginViewController.swift
-//  Navigation
-//
-//  Created by Simon Pegg on 10.08.2021.
-//
 import Foundation
 import UIKit
 
@@ -64,24 +58,27 @@ class LoginViewController: UIViewController {
         view.axis = .vertical
         return view
     }()
+    
     @objc func secureTypeOn(_ textField: UITextField){
         textField.isSecureTextEntry = true
     }
+    
     @objc func buttonPressed() {
         let vc = ProfileViewController()
         navigationController?.pushViewController(vc, animated: false)
-//        print("pressed")
     }
+    
     @objc func passwordFieldTapped(_ textField: UITextField){
         textField.text = ""
         textField.textColor = .black
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupConstraits()
- //       print (mainView.bounds.height)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self,
@@ -93,6 +90,7 @@ class LoginViewController: UIViewController {
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
     }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self,
@@ -102,6 +100,7 @@ class LoginViewController: UIViewController {
                                                   name: UIResponder.keyboardWillHideNotification,
                                                   object: nil)
     }
+    
     func setupViews(){
         view.addSubview(mainView)
         mainView.addSubview(contentView)
@@ -114,6 +113,7 @@ class LoginViewController: UIViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
     }
+    
     func setupConstraits() {
         let constraints = [
             mainView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -157,7 +157,9 @@ class LoginViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
 }
+
 private extension LoginViewController {
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             mainView.contentInset.bottom = keyboardSize.height
@@ -169,6 +171,7 @@ private extension LoginViewController {
             )
         }
     }
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         mainView.contentInset.bottom = .zero
         mainView.verticalScrollIndicatorInsets = .zero

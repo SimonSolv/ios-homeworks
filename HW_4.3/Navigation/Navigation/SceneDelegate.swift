@@ -20,13 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return vc
         }()
 
-//        let profileVC: ProfileViewController = {
-//            let vc = ProfileViewController()
-//            vc.view.backgroundColor = .lightGray
-//            vc.tabBarItem = UITabBarItem(title: "Profile", image: .init(imageLiteralResourceName: "profile") , tag: 0)
-//            return vc
-//        }()
-
         let feedVC: FeedViewController = {
             let vc = FeedViewController()
             vc.view.backgroundColor = .blue
@@ -39,6 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         profileNavVC.navigationBar.isHidden = true
 
         tabBarController.viewControllers = [feedNavVC , profileNavVC]
+        tabBarController.tabBar.backgroundColor = .white
         window?.rootViewController = tabBarController
     }
 }

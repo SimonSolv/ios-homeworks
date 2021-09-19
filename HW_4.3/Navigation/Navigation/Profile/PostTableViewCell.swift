@@ -59,6 +59,7 @@ class PostTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -82,7 +83,6 @@ extension PostTableViewCell {
             postTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             postTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             postTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-
             
             postImageView.topAnchor.constraint(equalTo: postTitle.bottomAnchor, constant: 12),
             postImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -103,6 +103,7 @@ extension PostTableViewCell {
             postLikes.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
             
         ]
+        
         NSLayoutConstraint.activate(constraints)
     }
 }

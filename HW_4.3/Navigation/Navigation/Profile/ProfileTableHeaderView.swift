@@ -1,9 +1,3 @@
-//
-//  ProfileTableHeaderView.swift
-//  Navigation
-//
-//  Created by Simon Pegg on 08.09.2021.
-//
 
 import UIKit
 
