@@ -135,6 +135,7 @@ class ProfileHeaderView: UIView {
             setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor ,constant: -16),
             setStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor,constant: 10),
             setStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            bottomAnchor.constraint(equalTo: setStatusButton.bottomAnchor, constant: 15),
             
             closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             closeButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
@@ -148,6 +149,7 @@ class ProfileHeaderView: UIView {
         ]
     NSLayoutConstraint.activate(constraints)
     }
+    
     @objc func backwardsAnimation() {
         animate2()
 

@@ -56,10 +56,10 @@ class PostTableViewCell: UITableViewCell {
         label.numberOfLines = 1
         return label
     }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -71,7 +71,7 @@ class PostTableViewCell: UITableViewCell {
 extension PostTableViewCell {
     
     private func setupViews() {
-        
+        translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(postImageView)
         contentView.addSubview(postTitle)
         contentView.addSubview(postDescription)
@@ -83,11 +83,12 @@ extension PostTableViewCell {
             postTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             postTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             postTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            //postTitle.heightAnchor.constraint(equalToConstant: 21),
             
             postImageView.topAnchor.constraint(equalTo: postTitle.bottomAnchor, constant: 12),
             postImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             postImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            postImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+           // postImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             postImageView.heightAnchor.constraint(equalTo: contentView.widthAnchor),
 
             postDescription.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: 16),
@@ -96,9 +97,9 @@ extension PostTableViewCell {
 
             postViews.topAnchor.constraint(equalTo: postDescription.bottomAnchor, constant: 16),
             postViews.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            postViews.heightAnchor.constraint(equalToConstant: 20),
+          //  postViews.heightAnchor.constraint(equalToConstant: 20),
 
-            postLikes.topAnchor.constraint(equalTo: postDescription.bottomAnchor, constant: 16),
+            postLikes.topAnchor.constraint(equalTo: postViews.topAnchor),
             postLikes.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             postLikes.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
             

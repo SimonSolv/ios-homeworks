@@ -10,19 +10,21 @@ class ProfileViewController: UIViewController {
     }()
     
     let cellID = "CellID"
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
-//        tapGesture.numberOfTapsRequired = 1
-//        tapGesture.numberOfTouchesRequired = 1
         view.backgroundColor = .lightGray
         setupTableView()
         setupConstraints()
-        }
+    }
 
     func setupTableView() {
         view.addSubview(tableView)
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: PhotosTableViewCell.identifier)
         tableView.register(ProfileTableHeaderView.self, forHeaderFooterViewReuseIdentifier: "header")
         tableView.dataSource = self
         tableView.delegate = self
@@ -38,15 +40,21 @@ class ProfileViewController: UIViewController {
         
         NSLayoutConstraint.activate(constraints)
     }
-//    @objc func tap() {
-//        
-//        print ("tapped")
-//    }
+    @objc func openGallery() {
+        let vc = GalleryViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        //navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "Post" else { return }
+        guard segue.destination is PostViewController else { return }
+    }
 
 }
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PostStorage.tableModel[section].body.count
+        return PostStorage.tableModel[section].body.count + 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -58,14 +66,16 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row < 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: PhotosTableViewCell.identifier, for: indexPath) as! PhotosTableViewCell
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? PostTableViewCell
-        cell?.post = PostStorage.tableModel[indexPath.section].body[indexPath.row]
+        cell?.post = PostStorage.tableModel[indexPath.section].body[indexPath.row - 1]
         return cell!
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 250
-    }
+
  
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return PostStorage.tableModel[section].footer
