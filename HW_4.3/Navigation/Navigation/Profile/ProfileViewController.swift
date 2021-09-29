@@ -1,7 +1,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
     let tableView: UITableView = {
         var table = UITableView()
         table.frame = .zero
@@ -12,10 +12,14 @@ class ProfileViewController: UIViewController {
     let cellID = "CellID"
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+//        tapGesture.numberOfTapsRequired = 1
+//        tapGesture.numberOfTouchesRequired = 1
+        view.backgroundColor = .lightGray
         setupTableView()
         setupConstraints()
         }
-    
+
     func setupTableView() {
         view.addSubview(tableView)
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: cellID)
@@ -31,8 +35,13 @@ class ProfileViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ]
+        
         NSLayoutConstraint.activate(constraints)
     }
+//    @objc func tap() {
+//        
+//        print ("tapped")
+//    }
 
 }
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate{

@@ -1,10 +1,3 @@
-//
-//  Post.swift
-//  Navigation
-//
-//  Created by Simon Pegg on 05.09.2021.
-//
-
 import UIKit
 
 struct PostBody {
