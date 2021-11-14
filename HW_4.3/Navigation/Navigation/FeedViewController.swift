@@ -27,24 +27,11 @@ class FeedViewController: UIViewController {
         buttonsView.axis = .vertical
         view.addSubview(buttonsView)
 
-        
         [
-            buttonsView.trailingAnchor.constraint(
-                equalTo: view.trailingAnchor,
-                constant: -20
-            ),
-            buttonsView.topAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.topAnchor,
-                constant: 100
-            ),
-            buttonsView.bottomAnchor.constraint(
-                equalTo: buttonsView.topAnchor,
-                constant: 210
-            ),
-            buttonsView.leadingAnchor.constraint(
-                equalTo: view.leadingAnchor,
-                constant: 20
-            ),
+            buttonsView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -20),
+            buttonsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 100),
+            buttonsView.bottomAnchor.constraint(equalTo: buttonsView.topAnchor,constant: 210),
+            buttonsView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 20),
 
         ]
         .forEach {
